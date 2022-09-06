@@ -1,0 +1,8 @@
+query Company {
+  company {
+    ceo
+    name
+    summary
+    vehicles
+  }
+}
