@@ -1,7 +1,7 @@
 import { COLORS } from 'colors/colors';
 import styled from 'styled-components';
 
-const { SILVER2, SILVER_CHALICE } = COLORS;
+const { SILVER_CHALICE, SILVER1 } = COLORS;
 
 const maxSize = '200px';
 
@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: ${maxSize};
-  background-color: ${SILVER_CHALICE};
+  background-color: ${SILVER1};
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
@@ -33,7 +33,7 @@ export const EmptyImage = styled.div`
   justify-content: center;
   width: ${maxSize};
   height: ${maxSize};
-  background-color: ${SILVER2};
+  background-color: ${SILVER_CHALICE};
   &:after {
     content: 'No image';
   }
