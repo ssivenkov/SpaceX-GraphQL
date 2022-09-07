@@ -20,14 +20,14 @@ export const ShipsPage = () => {
 
   return (
     <div>
-      <StyledLinkContainer>
-        <Link to={PATH.MAIN_PAGE}>Main page</Link>
-      </StyledLinkContainer>
       <StyledShipsContainer>
         {data?.ships?.map((item) => {
           return <ShipCard image={item?.image} key={item?.id} name={item?.name} />;
         })}
       </StyledShipsContainer>
+      <StyledLinkContainer>
+        <Link to={PATH.MAIN_PAGE}>Main page</Link>
+      </StyledLinkContainer>
     </div>
   );
 };
