@@ -2,6 +2,7 @@
   "name": "spacex-graphql",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ssivenkov.github.io/SpaceX-GraphQL",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.10.4",

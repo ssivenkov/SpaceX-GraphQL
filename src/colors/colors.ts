@@ -1,0 +1,7 @@
+export const COLORS = {
+  WHITE: '#FFFFFF',
+  TUNDORA: '#494949',
+  SILVER: '#CCCCCC',
+  SILVER_CHALICE: '#AAAAAA',
+  BLACK: '#000000',
+};
