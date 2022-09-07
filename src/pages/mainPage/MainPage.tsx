@@ -1,9 +1,15 @@
 import React from 'react';
 
 import { PATH } from 'enum/Path';
-import { Link } from 'react-router-dom';
 
-import { Container, WelcomeContainer, WelcomeDescription, WelcomeTitle } from './styles';
+import { Link } from './link/Link';
+import {
+  Container,
+  LinksContainer,
+  WelcomeContainer,
+  WelcomeDescription,
+  WelcomeTitle,
+} from './styles';
 
 export const MainPage = () => {
   return (
@@ -12,8 +18,10 @@ export const MainPage = () => {
         <WelcomeTitle>Welcome to SpaceX Info</WelcomeTitle>
         <WelcomeDescription>What would you like to know about?</WelcomeDescription>
       </WelcomeContainer>
-      <Link to={PATH.COMPANY}>Company</Link>
-      <Link to={PATH.SHIPS}>Ships</Link>
+      <LinksContainer>
+        <Link title='Company' to={PATH.COMPANY} />
+        <Link title='Ships' to={PATH.SHIPS} />
+      </LinksContainer>
     </Container>
   );
 };

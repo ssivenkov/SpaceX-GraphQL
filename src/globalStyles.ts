@@ -1,3 +1,4 @@
+import { COLORS } from 'colors/colors';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalNullStyles = createGlobalStyle`
@@ -90,6 +91,10 @@ code {
 `;
 
 export const GlobalAppStyles = createGlobalStyle`
+  * a {
+    color: ${COLORS.BLACK};
+  }
+  
 // hide default background color on click
 * {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
