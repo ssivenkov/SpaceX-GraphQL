@@ -1,7 +1,7 @@
 import { COLORS } from 'colors/colors';
 import styled from 'styled-components';
 
-const { SILVER, SILVER_CHALICE } = COLORS;
+const { SILVER2, SILVER_CHALICE } = COLORS;
 
 const maxSize = '200px';
 
@@ -33,7 +33,7 @@ export const EmptyImage = styled.div`
   justify-content: center;
   width: ${maxSize};
   height: ${maxSize};
-  background-color: ${SILVER};
+  background-color: ${SILVER2};
   &:after {
     content: 'No image';
   }

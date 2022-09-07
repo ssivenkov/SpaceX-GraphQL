@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { Header } from './components/header/Header';
 import { Navigation } from './navigation/Navigation';
-import { StyledAppContainer } from './styles';
+import { AppContainer } from './styles';
 
 export const App = () => {
   return (
-    <StyledAppContainer>
+    <AppContainer>
+      <Header />
       <Navigation />
-    </StyledAppContainer>
+    </AppContainer>
   );
 };
