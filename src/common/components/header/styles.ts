@@ -1,4 +1,4 @@
-import { COLORS } from 'colors/colors';
+import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`

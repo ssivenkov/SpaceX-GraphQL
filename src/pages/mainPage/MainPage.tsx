@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PATH } from 'enum/Path';
+import { PATH } from 'types/enum/Path';
 
 import { Link } from './link/Link';
 import {

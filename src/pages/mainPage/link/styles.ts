@@ -1,4 +1,4 @@
-import { COLORS } from 'colors/colors';
+import { COLORS } from 'common/colors/colors';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 

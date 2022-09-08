@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { PATH } from 'enum/Path';
 import { Link } from 'react-router-dom';
+import { PATH } from 'types/enum/Path';
 
 export const Error404Page = () => {
   return (

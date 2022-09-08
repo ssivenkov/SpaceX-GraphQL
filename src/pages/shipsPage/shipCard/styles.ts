@@ -1,4 +1,4 @@
-import { COLORS } from 'colors/colors';
+import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
 
 const { SILVER_CHALICE, SILVER1 } = COLORS;

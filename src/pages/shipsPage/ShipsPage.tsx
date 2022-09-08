@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { useShipsQuery } from 'apollo/generated/schema';
+import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
+import { Container } from 'common/components/pageContainer/pageContainer';
+import { PageTitle } from 'common/components/pageTitle/pageTitle';
 
 import { ShipCard } from './shipCard/ShipCard';
-import { Container, PageTitle, ShipsContainer } from './styles';
 
 export const ShipsPage = () => {
   const { loading, error, data } = useShipsQuery();
@@ -19,11 +21,11 @@ export const ShipsPage = () => {
   return (
     <Container>
       <PageTitle>Ships</PageTitle>
-      <ShipsContainer>
+      <CardsContainer>
         {data?.ships?.map((item) => {
           return <ShipCard image={item?.image} key={item?.id} name={item?.name} />;
         })}
-      </ShipsContainer>
+      </CardsContainer>
     </Container>
   );
 };

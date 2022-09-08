@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { PATH } from 'enum/Path';
 import { CompanyPage } from 'pages/companyPage/CompanyPage';
 import { Error404Page } from 'pages/error404Page/Error404Page';
 import { MainPage } from 'pages/mainPage/MainPage';
 import { ShipsPage } from 'pages/shipsPage/ShipsPage';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { PATH } from 'types/enum/Path';
 
 export const Navigation = () => {
   return (

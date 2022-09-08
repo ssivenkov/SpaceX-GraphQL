@@ -1,4 +1,4 @@
-import { COLORS } from 'colors/colors';
+import { COLORS } from 'common/colors/colors';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalNullStyles = createGlobalStyle`
