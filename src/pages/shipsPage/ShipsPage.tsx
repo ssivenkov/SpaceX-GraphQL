@@ -5,7 +5,7 @@ import { CardsContainer } from 'common/components/cardsContainer/cardsContainer'
 import { Container } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 
-import { ShipCard } from './shipCard/ShipCard';
+import { ListItemCard } from '../../common/components/listItemCard/ListItemCard';
 
 export const ShipsPage = () => {
   const { loading, error, data } = useShipsQuery();
@@ -23,7 +23,7 @@ export const ShipsPage = () => {
       <PageTitle>Ships</PageTitle>
       <CardsContainer>
         {data?.ships?.map((item) => {
-          return <ShipCard image={item?.image} key={item?.id} name={item?.name} />;
+          return <ListItemCard image={item?.image} key={item?.id} name={item?.name} />;
         })}
       </CardsContainer>
     </Container>

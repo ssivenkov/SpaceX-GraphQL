@@ -20,6 +20,7 @@ export const MainPage = () => {
       </WelcomeContainer>
       <LinksContainer>
         <Link title='Company' to={PATH.COMPANY} />
+        <Link title='Launches' to={PATH.LAUNCHES} />
         <Link title='Ships' to={PATH.SHIPS} />
       </LinksContainer>
     </Container>

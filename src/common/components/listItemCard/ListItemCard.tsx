@@ -1,7 +1,7 @@
 import { Container, EmptyImage, Image, Title } from './styles';
-import { ShipCardPropsType } from './types';
+import { ListItemCardPropsType } from './types';
 
-export const ShipCard = (props: ShipCardPropsType) => {
+export const ListItemCard = (props: ListItemCardPropsType) => {
   const { image, name } = props;
 
   return (

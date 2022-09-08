@@ -23,8 +23,7 @@ export const IconsContainer = styled.div`
   margin-top: 15px;
 `;
 
-export const Text = styled.span`
-  display: block;
+export const Text = styled.div`
   margin: 3px 0;
   &:first-child {
     margin-top: 0;
