@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Launch from 'common/assets/images/launch.jpeg';
+import Ship from 'common/assets/images/ship.jpeg';
+import SpaceXLogo from 'common/assets/images/SpaceXLogo.jpeg';
 import { PATH } from 'types/enum/Path';
 
 import { Link } from './link/Link';
@@ -19,9 +22,9 @@ export const MainPage = () => {
         <WelcomeDescription>What would you like to know about?</WelcomeDescription>
       </WelcomeContainer>
       <LinksContainer>
-        <Link title='Company' to={PATH.COMPANY} />
-        <Link title='Launches' to={PATH.LAUNCHES} />
-        <Link title='Ships' to={PATH.SHIPS} />
+        <Link image={SpaceXLogo} title='Company' to={PATH.COMPANY} />
+        <Link image={Launch} title='Launches' to={PATH.LAUNCHES} />
+        <Link image={Ship} title='Ships' to={PATH.SHIPS} />
       </LinksContainer>
     </Container>
   );
