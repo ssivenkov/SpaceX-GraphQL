@@ -1,4 +1,7 @@
+import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
+
+const { BLACK, TUNDORA, SILVER1 } = COLORS;
 
 export const StyledLinkButton = styled.a`
   display: flex !important;
@@ -8,19 +11,19 @@ export const StyledLinkButton = styled.a`
   height: 42px;
   margin: 0 12px;
   font-size: 34px;
-  color: var(--primary);
+  color: ${BLACK};
 
   @media (pointer: coarse) {
     &:active {
-      color: var(--primary_light);
-      filter: drop-shadow(0 0 5px var(--primary_medium));
+      color: ${SILVER1};
+      filter: drop-shadow(0 0 3px ${TUNDORA});
     }
   }
 
   @media (pointer: fine) {
     &:hover {
-      color: var(--primary_light);
-      filter: drop-shadow(0 0 5px var(--primary_medium));
+      color: ${SILVER1};
+      filter: drop-shadow(0 0 3px ${TUNDORA});
     }
     &:active {
       filter: none;
