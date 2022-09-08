@@ -8,3 +8,7 @@ export const HeaderContainer = styled.div`
   min-height: 45px;
   background-color: ${COLORS.SILVER1};
 `;
+
+export const Link = styled.div`
+  margin: 0 10px;
+`;
