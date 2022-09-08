@@ -1,7 +1,7 @@
 import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
 
-const { BLACK, SILVER_CHALICE, SILVER1, TUNDORA } = COLORS;
+const { BLACK, SILVER_CHALICE, WHITE, TUNDORA } = COLORS;
 
 export const StyledContactButton = styled.a`
   display: flex !important;
@@ -23,12 +23,12 @@ export const StyledContactButton = styled.a`
 
   @media (pointer: fine) {
     &:hover {
-      background-color: ${SILVER1};
+      background-color: ${WHITE};
       box-shadow: 0 0 13px 1px ${SILVER_CHALICE};
       text-shadow: 0 0 15px ${SILVER_CHALICE}, 0 0 5px ${SILVER_CHALICE};
     }
     &:active {
-      background-color: ${TUNDORA};
+      background-color: ${WHITE};
       box-shadow: 0 0 9px 1px ${TUNDORA};
     }
   }
