@@ -1,0 +1,45 @@
+%iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+%iconSize {
+  width: 18px;
+  height: 18px;
+}
+
+.leftIcon {
+  @extend %iconContainer;
+  svg {
+    @extend %iconSize;
+    margin-right: 9px;
+    fill: #fff;
+  }
+}
+
+.leftIconDisabled {
+  @extend %iconContainer;
+  svg {
+    @extend %iconSize;
+    margin-right: 9px;
+    fill: #333;
+  }
+}
+
+.rightIcon {
+  @extend %iconContainer;
+  svg {
+    @extend %iconSize;
+    margin-left: 9px;
+    fill: #fff;
+  }
+}
+
+.rightIconDisabled {
+  @extend %iconContainer;
+  svg {
+    @extend %iconSize;
+    margin-left: 9px;
+    fill: #333;
+  }
+}

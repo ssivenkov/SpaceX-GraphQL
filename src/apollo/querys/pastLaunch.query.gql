@@ -1,0 +1,5 @@
+query lastPastLaunch {
+  launchesPast(offset: 0, limit: 1) {
+    id
+  }
+}
