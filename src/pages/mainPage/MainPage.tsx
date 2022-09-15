@@ -23,7 +23,8 @@ export const MainPage = () => {
       </WelcomeContainer>
       <LinksContainer>
         <Link image={SpaceXLogo} title='Company' to={PATH.COMPANY} />
-        <Link image={Launch} title='Launches' to={PATH.LAUNCHES} />
+        <Link image={Launch} title='Launches Pagination' to={PATH.LAUNCHES_P} />
+        <Link image={Launch} title='Launches Infinite scroll' to={PATH.LAUNCHES_IS} />
         <Link image={Ship} title='Ships' to={PATH.SHIPS} />
       </LinksContainer>
     </Container>

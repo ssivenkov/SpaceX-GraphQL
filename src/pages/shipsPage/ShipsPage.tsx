@@ -2,10 +2,10 @@ import React from 'react';
 
 import { useShipsQuery } from 'apollo/generated/schema';
 import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
+import ListItemCard from 'common/components/listItemCard/ListItemCard';
+import { Loader } from 'common/components/loader/Loader';
 import { Container } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
-
-import { ListItemCard } from '../../common/components/listItemCard/ListItemCard';
 
 export const ShipsPage = () => {
   const { loading, error, data } = useShipsQuery();
@@ -15,7 +15,7 @@ export const ShipsPage = () => {
   }
 
   if (loading) {
-    return <Container>loading</Container>;
+    return <Loader />;
   }
 
   return (

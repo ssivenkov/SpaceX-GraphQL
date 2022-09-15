@@ -26,4 +26,6 @@ export const LinkImage = styled.img`
   object-fit: cover;
 `;
 
-export const LinkTitle = styled(Link)``;
+export const LinkTitle = styled(Link)`
+  text-align: center;
+`;

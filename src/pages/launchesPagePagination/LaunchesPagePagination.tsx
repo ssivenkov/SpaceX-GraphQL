@@ -8,13 +8,14 @@ import {
   CardsContainer,
   PaginationContainer,
 } from 'common/components/cardsContainer/cardsContainer';
-import { ListItemCard } from 'common/components/listItemCard/ListItemCard';
+import ListItemCard from 'common/components/listItemCard/ListItemCard';
+import { Loader } from 'common/components/loader/Loader';
 import { Container } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { Pagination } from 'common/components/pagination/Pagination';
 import { useParams } from 'react-router-dom';
 
-export const LaunchesPage = () => {
+export const LaunchesPagePagination = () => {
   const { launchesPage } = useParams();
 
   const currentPage = Number(launchesPage);
@@ -38,14 +39,11 @@ export const LaunchesPage = () => {
     return <Container>{error.message}</Container>;
   }
 
-  if (loading) {
-    return <Container>loading</Container>;
-  }
-
   return (
     <Container>
       <PageTitle>Launches</PageTitle>
       <CardsContainer>
+        {loading && <Loader />}
         {data?.launchesPast?.map((item) => {
           return (
             <ListItemCard

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useCompanyInfoQuery } from 'apollo/generated/schema';
 import SpaceXLogo from 'common/assets/images/SpaceXLogo.jpeg';
+import { Loader } from 'common/components/loader/Loader';
 import { Container } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { FaTwitter, FaFlickr } from 'react-icons/fa';
@@ -26,7 +27,7 @@ export const CompanyPage = () => {
   }
 
   if (loading) {
-    return <Container>loading</Container>;
+    return <Loader />;
   }
 
   return (
