@@ -66,52 +66,66 @@ export const LaunchPage = () => {
           )}
         </Container>
         <Container>
-          <PageTitle>{data?.launch?.mission_name}</PageTitle>
-          <div>{data?.launch?.details}</div>
-          <Divider />
+          {data?.launch?.mission_name && (
+            <PageTitle>{data?.launch?.mission_name}</PageTitle>
+          )}
+          {data?.launch?.details && <div>{data?.launch?.details}</div>}
           {data?.launch?.rocket?.rocket_name && (
-            <ContainerSpaceBetween>
-              <Caption>Rocket name</Caption>
-              <Text>{data?.launch?.rocket?.rocket_name}</Text>
-            </ContainerSpaceBetween>
+            <>
+              <Divider />
+              <ContainerSpaceBetween>
+                <Caption>Rocket name</Caption>
+                <Text>{data?.launch?.rocket?.rocket_name}</Text>
+              </ContainerSpaceBetween>
+            </>
           )}
-          <Divider />
-          <ContainerSpaceBetween>
-            <Caption>Launch date</Caption>
-            <Text>{new Date(data?.launch?.launch_date_utc).toLocaleString()}</Text>
-          </ContainerSpaceBetween>
-          <Divider />
+          {data?.launch?.launch_date_utc && (
+            <>
+              <Divider />
+              <ContainerSpaceBetween>
+                <Caption>Launch date</Caption>
+                <Text>{new Date(data?.launch?.launch_date_utc).toLocaleString()}</Text>
+              </ContainerSpaceBetween>
+            </>
+          )}
           {data?.launch?.launch_site?.site_name_long && (
-            <ContainerSpaceBetween>
-              <Caption>Launch site</Caption>
-              <Text>{data?.launch?.launch_site?.site_name_long}</Text>
-            </ContainerSpaceBetween>
+            <>
+              <Divider />
+              <ContainerSpaceBetween>
+                <Caption>Launch site</Caption>
+                <Text>{data?.launch?.launch_site?.site_name_long}</Text>
+              </ContainerSpaceBetween>
+            </>
           )}
-          <Divider />
           {data?.launch?.links?.article_link && (
-            <ContainerSpaceBetween>
-              <Caption>Article</Caption>
-              <Link
-                href={data?.launch?.links?.article_link}
-                rel='noreferrer'
-                target='_blank'
-              >
-                Article link
-              </Link>
-            </ContainerSpaceBetween>
+            <>
+              <Divider />
+              <ContainerSpaceBetween>
+                <Caption>Article</Caption>
+                <Link
+                  href={data?.launch?.links?.article_link}
+                  rel='noreferrer'
+                  target='_blank'
+                >
+                  Article link
+                </Link>
+              </ContainerSpaceBetween>
+            </>
           )}
-          <Divider />
           {data?.launch?.links?.video_link && (
-            <ContainerSpaceBetween>
-              <Caption>Video</Caption>
-              <Link
-                href={data?.launch?.links?.video_link}
-                rel='noreferrer'
-                target='_blank'
-              >
-                Video link
-              </Link>
-            </ContainerSpaceBetween>
+            <>
+              <Divider />
+              <ContainerSpaceBetween>
+                <Caption>Video</Caption>
+                <Link
+                  href={data?.launch?.links?.video_link}
+                  rel='noreferrer'
+                  target='_blank'
+                >
+                  Video link
+                </Link>
+              </ContainerSpaceBetween>
+            </>
           )}
         </Container>
       </RowContainer>
