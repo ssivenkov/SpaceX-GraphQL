@@ -7,9 +7,11 @@ import {
 import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
-import { Container } from 'common/components/pageContainer/pageContainer';
+import { LoaderContainer } from 'common/components/loader/LoaderContainer';
+import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { useInView } from 'react-cool-inview';
+import { PATH } from 'types/enum/Path';
 
 export const LaunchesPageInfiniteScroll = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -31,27 +33,6 @@ export const LaunchesPageInfiniteScroll = () => {
         setItems([...items, ...res.data.launchesPast]);
       }
     });
-
-    /*fetchMore({
-      variables: {
-        limit,
-        offset,
-      },
-      updateQuery: (prev, { fetchMoreResult }) => {
-        if (
-          items !== null &&
-          items !== undefined &&
-          prev.launchesPast &&
-          fetchMoreResult.launchesPast
-        ) {
-          setItems([...items, ...fetchMoreResult.launchesPast]);
-
-          return Object.assign({}, prev, {
-            launchesPast: [...prev.launchesPast, ...fetchMoreResult.launchesPast],
-          });
-        } else return prev;
-      },
-    });*/
   };
 
   const { observe } = useInView({
@@ -68,12 +49,22 @@ export const LaunchesPageInfiniteScroll = () => {
     loadMoreLaunches();
   }, [currentPage]);
 
+  if (loading && items?.length === 0) {
+    return (
+      <PageContainer>
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      </PageContainer>
+    );
+  }
+
   if (error) {
     return <Container>{error.message}</Container>;
   }
 
   return (
-    <Container>
+    <PageContainer>
       <PageTitle>Launches</PageTitle>
       <CardsContainer>
         {items?.map((item, index, array) => {
@@ -87,6 +78,7 @@ export const LaunchesPageInfiniteScroll = () => {
                   : item?.links?.mission_patch
               }
               key={item?.id}
+              linkTo={`../../${PATH.LAUNCHES}/${item?.id}`}
               name={item?.mission_name}
               ref={isLastElement ? observe : null}
             />
@@ -94,6 +86,6 @@ export const LaunchesPageInfiniteScroll = () => {
         })}
         {loading && <Loader />}
       </CardsContainer>
-    </Container>
+    </PageContainer>
   );
 };

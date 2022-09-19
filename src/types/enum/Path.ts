@@ -1,6 +1,7 @@
 export enum PATH {
   MAIN_PAGE = '/',
   COMPANY = 'company',
+  LAUNCHES = 'launches',
   LAUNCHES_P = 'launchesPagination',
   LAUNCHES_IS = 'launchesInfiniteScroll',
   SHIPS = 'ships',

@@ -3,7 +3,8 @@ import React from 'react';
 import { useCompanyInfoQuery } from 'apollo/generated/schema';
 import SpaceXLogo from 'common/assets/images/SpaceXLogo.jpeg';
 import { Loader } from 'common/components/loader/Loader';
-import { Container } from 'common/components/pageContainer/pageContainer';
+import { LoaderContainer } from 'common/components/loader/LoaderContainer';
+import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { FaTwitter, FaFlickr } from 'react-icons/fa';
 import { IoMdHome } from 'react-icons/io';
@@ -27,11 +28,17 @@ export const CompanyPage = () => {
   }
 
   if (loading) {
-    return <Loader />;
+    return (
+      <PageContainer>
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      </PageContainer>
+    );
   }
 
   return (
-    <Container>
+    <PageContainer>
       <PageTitle>SpaceX</PageTitle>
       <ContentContainer>
         <CompanyCardContainer>
@@ -67,6 +74,6 @@ export const CompanyPage = () => {
           <Text>{`Summary: ${data?.company?.summary}`}</Text>
         </div>
       </ContentContainer>
-    </Container>
+    </PageContainer>
   );
 };

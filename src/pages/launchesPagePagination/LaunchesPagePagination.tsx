@@ -4,16 +4,15 @@ import {
   useLastPastLaunchQuery,
   usePastLaunchesListQuery,
 } from 'apollo/generated/schema';
-import {
-  CardsContainer,
-  PaginationContainer,
-} from 'common/components/cardsContainer/cardsContainer';
+import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
-import { Container } from 'common/components/pageContainer/pageContainer';
+import { LoaderContainer } from 'common/components/loader/LoaderContainer';
+import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { Pagination } from 'common/components/pagination/Pagination';
 import { useParams } from 'react-router-dom';
+import { PATH } from 'types/enum/Path';
 
 export const LaunchesPagePagination = () => {
   const { launchesPage } = useParams();
@@ -35,15 +34,24 @@ export const LaunchesPagePagination = () => {
   const lastPastLaunch =
     lastPastLaunchData?.launchesPast && Number(lastPastLaunchData?.launchesPast[0]?.id);
 
+  if (loading) {
+    return (
+      <PageContainer>
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      </PageContainer>
+    );
+  }
+
   if (error) {
     return <Container>{error.message}</Container>;
   }
 
   return (
-    <Container>
+    <PageContainer>
       <PageTitle>Launches</PageTitle>
       <CardsContainer>
-        {loading && <Loader />}
         {data?.launchesPast?.map((item) => {
           return (
             <ListItemCard
@@ -53,23 +61,20 @@ export const LaunchesPagePagination = () => {
                   : item?.links?.mission_patch
               }
               key={item?.id}
+              linkTo={`../../${PATH.LAUNCHES}/${item?.id}`}
               name={item?.mission_name}
             />
           );
         })}
       </CardsContainer>
-      {launchesPage && (
-        <PaginationContainer>
-          {lastPastLaunch && (
-            <Pagination
-              currentPage={currentPage}
-              itemsPerPageCount={limit}
-              totalItemsCount={lastPastLaunch}
-              visiblePaginationLinksCount={5}
-            />
-          )}
-        </PaginationContainer>
+      {launchesPage && lastPastLaunch && (
+        <Pagination
+          currentPage={currentPage}
+          itemsPerPageCount={limit}
+          totalItemsCount={lastPastLaunch}
+          visiblePaginationLinksCount={5}
+        />
       )}
-    </Container>
+    </PageContainer>
   );
 };

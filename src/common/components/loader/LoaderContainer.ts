@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const CardsContainer = styled.div`
+export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
 `;
