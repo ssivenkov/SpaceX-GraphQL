@@ -1,6 +1,6 @@
 query pastLaunchesList($limit: Int!, $offset: Int = 0, $sort: String) {
-  launchesPast(limit: $limit, offset: $offset, sort: $sort) {
-    id
+  launchesPast (limit: $limit, offset: $offset, sort: $sort) {
+    ...launchesPastIdFragment
     mission_name
     links {
       flickr_images
