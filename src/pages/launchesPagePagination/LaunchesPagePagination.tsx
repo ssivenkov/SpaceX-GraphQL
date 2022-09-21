@@ -24,6 +24,8 @@ export const LaunchesPagePagination = () => {
       limit,
       offset,
     },
+    fetchPolicy: 'network-only',
+    nextFetchPolicy: 'cache-first',
   });
 
   const { data: lastPastLaunchData } = useLastPastLaunchQuery();

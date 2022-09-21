@@ -25,6 +25,8 @@ export const LaunchesPageInfiniteScroll = () => {
         limit,
         offset,
       },
+      fetchPolicy: 'network-only',
+      nextFetchPolicy: 'cache-first',
     }).then((res) => {
       if (items !== null && items !== undefined && res.data && res.data.launchesPast) {
         setItems([...items, ...res.data.launchesPast]);

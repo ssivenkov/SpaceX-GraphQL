@@ -24,6 +24,8 @@ export const ShipsPage = () => {
         limit,
         offset,
       },
+      fetchPolicy: 'network-only',
+      nextFetchPolicy: 'cache-first',
     }).then((res) => {
       if (items !== null && items !== undefined && res.data && res.data.ships) {
         setItems([...items, ...res.data.ships]);

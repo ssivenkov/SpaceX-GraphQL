@@ -8,14 +8,3 @@ query pastLaunches($limit: Int!, $offset: Int = 0, $sort: String) {
     }
   }
 }
-
-#query pastLaunchesList($limit: Int!, $offset: Int = 0, $sort: String, $onlyLinks: Boolean = false) {
-#  launchesPast (limit: $limit, offset: $offset, sort: $sort) {
-#    ...launchesPastIdFragment @skip(if: $onlyLinks)
-#    mission_name @skip(if: $onlyLinks)
-#    links {
-#      flickr_images
-#      mission_patch
-#    }
-#  }
-#}
