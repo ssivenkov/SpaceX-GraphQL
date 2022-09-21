@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import {
-  PastLaunchesListQuery,
-  usePastLaunchesListLazyQuery,
-} from 'apollo/generated/schema';
+import { PastLaunchesQuery, usePastLaunchesLazyQuery } from 'apollo/generated/schema';
 import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
@@ -15,12 +12,12 @@ import { PATH } from 'types/enum/Path';
 
 export const LaunchesPageInfiniteScroll = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [items, setItems] = useState<PastLaunchesListQuery['launchesPast']>([]);
+  const [items, setItems] = useState<PastLaunchesQuery['launchesPast']>([]);
 
   const limit = 16;
   const offset = items?.length;
 
-  const [launchesQuery, { loading, error }] = usePastLaunchesListLazyQuery();
+  const [launchesQuery, { loading, error }] = usePastLaunchesLazyQuery();
 
   const loadMoreLaunches = () => {
     launchesQuery({

@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  useLastPastLaunchQuery,
-  usePastLaunchesListQuery,
-} from 'apollo/generated/schema';
+import { useLastPastLaunchQuery, usePastLaunchesQuery } from 'apollo/generated/schema';
 import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
@@ -22,7 +19,7 @@ export const LaunchesPagePagination = () => {
   const limit = 12;
   const offset = limit * (currentPage - 1);
 
-  const { loading, error, data } = usePastLaunchesListQuery({
+  const { loading, error, data } = usePastLaunchesQuery({
     variables: {
       limit,
       offset,
