@@ -28,4 +28,5 @@ export const LinkImage = styled.img`
 
 export const LinkTitle = styled(Link)`
   text-align: center;
+  color: var(--text);
 `;

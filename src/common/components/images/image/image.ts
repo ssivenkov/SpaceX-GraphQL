@@ -1,4 +1,3 @@
-import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
 
 import { defaultImageSize } from '../emptyImage/emptyImage';
@@ -12,5 +11,5 @@ export const Image = styled.img<ImagePropsType>`
   border-radius: ${(props) => (props.borderRadius ? props.borderRadius : 0)}px;
   width: ${(props) => (props.width ? props.width : defaultImageSize)}px;
   height: ${(props) => (props.height ? props.height : defaultImageSize)}px;
-  background-color: ${COLORS.SILVER_CHALICE};
+  background-color: var(--nav);
 `;

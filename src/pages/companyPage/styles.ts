@@ -25,6 +25,7 @@ export const IconsContainer = styled.div`
 
 export const Text = styled.div`
   margin: 3px 0;
+  color: var(--text);
   &:first-child {
     margin-top: 0;
   }

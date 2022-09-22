@@ -4,6 +4,7 @@ export const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--background);
 `;
 
 export const ContentContainer = styled.div`

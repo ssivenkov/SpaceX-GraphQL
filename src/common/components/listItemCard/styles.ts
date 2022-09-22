@@ -1,4 +1,3 @@
-import { COLORS } from 'common/colors/colors';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -9,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   max-width: ${maxSize};
-  background-color: ${COLORS.SILVER2};
+  background-color: var(--cardBackground);
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
@@ -25,6 +24,7 @@ export const Title = styled.div`
   flex: 1 0 auto;
   text-align: center;
   font-size: 18px;
+  color: var(--text);
   margin: 5px 8px;
 `;
 
@@ -33,8 +33,9 @@ export const StyledLink = styled(Link)`
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  background-color: #ddd;
+  color: var(--text);
+  background-color: var(--cardLink);
   &:hover {
-    background-color: #eee;
+    background-color: var(--cardLinkHover);
   }
 `;

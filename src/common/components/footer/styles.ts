@@ -1,4 +1,3 @@
-import { COLORS } from 'common/colors/colors';
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
@@ -7,7 +6,7 @@ export const FooterContainer = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 45px;
-  background-color: ${COLORS.SILVER1};
+  background-color: var(--nav);
 `;
 
 export const ContactsContainer = styled.div`

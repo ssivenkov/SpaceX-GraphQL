@@ -13,11 +13,13 @@ export const WelcomeContainer = styled.div`
 export const WelcomeTitle = styled.span`
   font-size: 32px;
   font-weight: 600;
+  color: var(--text);
   margin-bottom: 10px;
 `;
 
 export const WelcomeDescription = styled.span`
   font-size: 20px;
+  color: var(--text);
 `;
 
 export const LinksContainer = styled.div`
