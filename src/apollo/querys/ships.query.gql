@@ -1,5 +1,5 @@
-query ships($limit: Int!, $offset: Int = 0, $sort: String) {
-  ships (limit: $limit, offset: $offset, sort: $sort) {
+query ships($limit: Int!, $offset: Int = 0) {
+  ships (limit: $limit, offset: $offset) {
     ...shipIdFragment
     image
     name

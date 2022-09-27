@@ -1,5 +1,5 @@
-query pastLaunches($limit: Int!, $offset: Int = 0, $sort: String) {
-  launchesPast (limit: $limit, offset: $offset, sort: $sort) {
+query pastLaunches($limit: Int!, $offset: Int = 0) {
+  launchesPast (limit: $limit, offset: $offset) {
     ...launchesPastIdFragment
     mission_name
     links {
