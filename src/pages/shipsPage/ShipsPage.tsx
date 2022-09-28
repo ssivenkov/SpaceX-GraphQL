@@ -5,9 +5,11 @@ import { CardsContainer } from 'common/components/cardsContainer/cardsContainer'
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
-import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
+import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
+import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useInView } from 'react-cool-inview';
+import { ToastContainer } from 'react-toastify';
 
 export const ShipsPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -50,6 +52,7 @@ export const ShipsPage = () => {
   if (loading && items?.length === 0) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -58,11 +61,17 @@ export const ShipsPage = () => {
   }
 
   if (error) {
-    return <Container>{error.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{error.message}</div>
+      </PageContainer>
+    );
   }
 
   return (
     <PageContainer>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <PageTitle>Ships</PageTitle>
       <CardsContainer>
         {items?.map((item, index, array) => {

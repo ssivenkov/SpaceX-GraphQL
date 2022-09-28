@@ -13,7 +13,9 @@ import {
   RowContainer,
 } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
+import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useParams } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { Caption, Link, Text } from './styles';
 
@@ -30,12 +32,18 @@ export const LaunchPage = () => {
   const imageBorderRadius = 10;
 
   if (error) {
-    return <PageContainer>{error.message}</PageContainer>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{error.message}</div>
+      </PageContainer>
+    );
   }
 
   if (loading) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -45,6 +53,7 @@ export const LaunchPage = () => {
 
   return (
     <PageContainer>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <RowContainer>
         <Container margin='0 40px 0 0'>
           {data?.launch?.links?.flickr_images &&

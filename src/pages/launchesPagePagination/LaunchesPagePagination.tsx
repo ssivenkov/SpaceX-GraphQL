@@ -5,10 +5,12 @@ import { CardsContainer } from 'common/components/cardsContainer/cardsContainer'
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
-import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
+import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { Pagination } from 'common/components/pagination/Pagination';
+import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useParams } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { PATH } from 'types/enum/Path';
 
 export const LaunchesPagePagination = () => {
@@ -34,6 +36,7 @@ export const LaunchesPagePagination = () => {
   if (loading) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -42,11 +45,17 @@ export const LaunchesPagePagination = () => {
   }
 
   if (error) {
-    return <Container>{error.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{error.message}</div>
+      </PageContainer>
+    );
   }
 
   return (
     <PageContainer>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <PageTitle>Launches</PageTitle>
       <CardsContainer>
         {data?.launchesPast?.map((item) => {

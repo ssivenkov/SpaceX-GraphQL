@@ -4,18 +4,20 @@ import { useCompanyInfoQuery } from 'apollo/generated/schema';
 import SpaceXLogo from 'common/assets/images/SpaceXLogo.jpeg';
 import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
-import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
+import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
-import { FaTwitter, FaFlickr } from 'react-icons/fa';
+import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
+import { FaFlickr, FaTwitter } from 'react-icons/fa';
 import { IoMdHome } from 'react-icons/io';
+import { ToastContainer } from 'react-toastify';
 
 import { IconLinkButton } from './iconLinkButton/IconLinkButton';
 import {
   CompanyCardContainer,
   ContentContainer,
-  Text,
   IconsContainer,
   SpaceXLogoImage,
+  Text,
 } from './styles';
 
 export const CompanyPage = () => {
@@ -24,12 +26,18 @@ export const CompanyPage = () => {
   const headquarters = `${data?.company?.headquarters?.address}, ${data?.company?.headquarters?.city}, ${data?.company?.headquarters?.state}`;
 
   if (error) {
-    return <Container>{error.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{error.message}</div>
+      </PageContainer>
+    );
   }
 
   if (loading) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -39,6 +47,7 @@ export const CompanyPage = () => {
 
   return (
     <PageContainer>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <PageTitle>SpaceX</PageTitle>
       <ContentContainer>
         <CompanyCardContainer>

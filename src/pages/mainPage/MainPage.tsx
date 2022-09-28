@@ -5,7 +5,10 @@ import SpaceXLogo from 'common/assets/images/SpaceXLogo.jpeg';
 import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
 import { PageContainer } from 'common/components/pageContainer/pageContainer';
+import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
+import { ToastContainer } from 'react-toastify';
 import { PATH } from 'types/enum/Path';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Link } from './link/Link';
 import {
@@ -54,14 +57,25 @@ export const MainPage = () => {
     shipsData?.ships && shipsData?.ships[0]?.image ? shipsData?.ships[0]?.image : '';
 
   if (pastLaunchesError) {
-    return <Container>{pastLaunchesError.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{pastLaunchesError.message}</div>
+      </PageContainer>
+    );
   } else if (shipsError) {
-    return <Container>{shipsError.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{shipsError.message}</div>
+      </PageContainer>
+    );
   }
 
   if (pastLaunchesLoading || shipsLoading) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -71,6 +85,7 @@ export const MainPage = () => {
 
   return (
     <Container>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <WelcomeContainer>
         <WelcomeTitle>Welcome to SpaceX Info</WelcomeTitle>
         <WelcomeDescription>What would you like to know about?</WelcomeDescription>
