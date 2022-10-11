@@ -8,7 +8,7 @@ import { LoaderContainer } from 'common/components/loader/LoaderContainer';
 import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
 import { Pagination } from 'common/components/pagination/Pagination';
-import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
+import { LAUNCHES, NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { PATH } from 'types/enum/Path';
@@ -61,6 +61,7 @@ export const LaunchesPagePagination = () => {
         {data?.launchesPast?.map((item) => {
           return (
             <ListItemCard
+              id={item?.id}
               image={
                 item?.links?.flickr_images && item?.links?.flickr_images?.length > 0
                   ? item?.links?.flickr_images[0]
@@ -69,6 +70,7 @@ export const LaunchesPagePagination = () => {
               key={item?.id}
               linkTo={`../../${PATH.LAUNCHES}/${item?.id}`}
               name={item?.mission_name}
+              sectionType={LAUNCHES}
             />
           );
         })}

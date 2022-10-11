@@ -7,7 +7,7 @@ import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
 import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
-import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
+import { LAUNCHES, NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useInView } from 'react-cool-inview';
 import { ToastContainer } from 'react-toastify';
 import { PATH } from 'types/enum/Path';
@@ -80,6 +80,7 @@ export const LaunchesPageInfiniteScroll = () => {
 
           return (
             <ListItemCard
+              id={item?.id}
               image={
                 item?.links?.flickr_images && item?.links?.flickr_images?.length > 0
                   ? item?.links?.flickr_images[0]
@@ -89,6 +90,7 @@ export const LaunchesPageInfiniteScroll = () => {
               linkTo={`../../${PATH.LAUNCHES}/${item?.id}`}
               name={item?.mission_name}
               ref={isLastElement ? observe : null}
+              sectionType={LAUNCHES}
             />
           );
         })}

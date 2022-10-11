@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { client } from 'apollo/client';
+import { USER_ID, USER_PHOTO, USER_TOKEN } from 'common/constants/constants';
 import { GoogleAuthProvider, signInWithPopup, signOut, getAuth } from 'firebase/auth';
 
 import {
@@ -12,8 +14,10 @@ import {
   UserPhoto,
 } from './styles';
 import { ThemeSwitcher } from './themeSwitcher/ThemeSwitcher';
+import { HeaderPropsType } from './types';
 
-export const Header = () => {
+export const Header = (props: HeaderPropsType) => {
+  const { setUserID } = props;
   const userToken = localStorage.getItem('userToken');
 
   const provider = new GoogleAuthProvider();
@@ -23,22 +27,30 @@ export const Header = () => {
 
   const signOutCallback = () => {
     signOut(auth).then(() => {
-      localStorage.removeItem('userToken');
-      localStorage.removeItem('userPhoto');
+      client.resetStore();
+      localStorage.removeItem(USER_TOKEN);
+      localStorage.removeItem(USER_ID);
+      localStorage.removeItem(USER_PHOTO);
       setUserPhoto('');
+      setUserID(null);
     });
   };
 
   const signIn = () => {
     signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
+
       const token = credential?.accessToken;
       const user = result.user;
+      const userID = result.user.uid;
 
       if (user && user.photoURL !== null && token) {
-        localStorage.setItem('userToken', token);
-        localStorage.setItem('userPhoto', user.photoURL);
+        client.resetStore();
+        localStorage.setItem(USER_TOKEN, token);
+        localStorage.setItem(USER_ID, userID);
+        localStorage.setItem(USER_PHOTO, user.photoURL);
         setUserPhoto(user.photoURL);
+        setUserID(result.user.uid);
       }
     });
   };

@@ -7,7 +7,7 @@ import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
 import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
-import { NOTIFICATION_TIMEOUT } from 'common/constants/constants';
+import { NOTIFICATION_TIMEOUT, SHIPS } from 'common/constants/constants';
 import { useInView } from 'react-cool-inview';
 import { ToastContainer } from 'react-toastify';
 
@@ -79,10 +79,12 @@ export const ShipsPage = () => {
 
           return (
             <ListItemCard
+              id={item?.id}
               image={item?.image !== null ? item?.image : ''}
               key={item?.id}
               name={item?.name}
               ref={isLastElement ? observe : null}
+              sectionType={SHIPS}
             />
           );
         })}

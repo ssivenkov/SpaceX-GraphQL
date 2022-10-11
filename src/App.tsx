@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 import { toggleDarkMode } from 'apollo/reactiveVars/darkModeVars';
 import { darkThemeColors, lightThemeColors } from 'common/colors/themeColors';
 import { Footer } from 'common/components/footer/Footer';
 import { Header } from 'common/components/header/Header';
-import { DARK_THEME, LIGHT_THEME } from 'common/constants/constants';
+import {
+  DARK_THEME,
+  LIGHT_THEME,
+  USER_ID,
+  USER_THEME,
+  USER_TOKEN,
+} from 'common/constants/constants';
 import { Navigation } from 'navigation/Navigation';
-import { ChangeThemeParams } from 'types';
+import { ChangeThemeParams, NullableType } from 'types';
 
 import { AppContainer, ContentContainer } from './styles';
 
@@ -29,8 +35,14 @@ export const changeTheme = (params: ChangeThemeParams): void => {
   }
 };
 
+export type UserIDType = NullableType<string>;
+
+export const UserIDContext = createContext(localStorage.getItem(USER_ID));
+
 export const App = () => {
-  if (localStorage.getItem('userTheme')) {
+  const [userID, setUserID] = useState<UserIDType>(localStorage.getItem(USER_ID));
+
+  if (localStorage.getItem(USER_THEME)) {
     let localTheme = LIGHT_THEME;
     const userTheme = localStorage.getItem('userTheme') ?? false;
 
@@ -54,13 +66,24 @@ export const App = () => {
     changeTheme({ userTheme: localTheme, themeColors: themeColorsPack });
   }
 
+  useEffect(() => {
+    const userID = localStorage.getItem(USER_ID);
+    const userToken = localStorage.getItem(USER_TOKEN);
+
+    if (userID && userToken) {
+      setUserID(userID);
+    } else setUserID(null);
+  }, [userID]);
+
   return (
-    <AppContainer>
-      <Header />
-      <ContentContainer>
-        <Navigation />
-      </ContentContainer>
-      <Footer />
-    </AppContainer>
+    <UserIDContext.Provider value={localStorage.getItem(USER_ID)}>
+      <AppContainer>
+        <Header setUserID={setUserID} />
+        <ContentContainer>
+          <Navigation />
+        </ContentContainer>
+        <Footer />
+      </AppContainer>
+    </UserIDContext.Provider>
   );
 };

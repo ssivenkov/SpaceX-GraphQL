@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { Button } from '../button/Button';
+import { Button } from '../buttons/button/Button';
 import { SvgSelector } from '../svgSelector/SVGSelector';
 
 import style from './Pagination.module.scss';
