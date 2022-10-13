@@ -1,0 +1,24 @@
+import { gql } from '@apollo/client';
+
+export const LAUNCH = gql`
+  query Launch($launchId: ID!) {
+    launch(id: $launchId) {
+      details
+      id
+      launch_date_utc
+      launch_site {
+        site_name_long
+      }
+      links {
+        flickr_images
+        article_link
+        mission_patch
+        video_link
+      }
+      mission_name
+      rocket {
+        rocket_name
+      }
+    }
+  }
+`;
