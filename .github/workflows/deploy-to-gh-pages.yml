@@ -22,6 +22,7 @@ jobs:
           npm run codegen
           npm run-script build
         env:
+          CI: ""
           REACT_APP_GRAPHQL_ENDPOINT: ${{ secrets.REACT_APP_GRAPHQL_ENDPOINT }}
           REACT_APP_API_KEI: ${{ secrets.REACT_APP_API_KEI }}
           REACT_APP_DATABASE_URL: ${{ secrets.REACT_APP_DATABASE_URL }}
