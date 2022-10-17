@@ -10,6 +10,5 @@ export const AppContainer = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
-  flex: 1 0 auto;
-  margin: 0 200px;
+  margin: 0 15px;
 `;
