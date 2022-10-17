@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
-import {
-  PastLaunchesListQuery,
-  usePastLaunchesListLazyQuery,
-} from 'apollo/generated/schema';
+import { PastLaunchesQuery, usePastLaunchesLazyQuery } from 'apollo/generated/schema';
 import { CardsContainer } from 'common/components/cardsContainer/cardsContainer';
 import ListItemCard from 'common/components/listItemCard/ListItemCard';
 import { Loader } from 'common/components/loader/Loader';
 import { LoaderContainer } from 'common/components/loader/LoaderContainer';
-import { Container, PageContainer } from 'common/components/pageContainer/pageContainer';
+import { PageContainer } from 'common/components/pageContainer/pageContainer';
 import { PageTitle } from 'common/components/pageTitle/pageTitle';
+import { LAUNCHES, NOTIFICATION_TIMEOUT } from 'common/constants/constants';
 import { useInView } from 'react-cool-inview';
+import { ToastContainer } from 'react-toastify';
 import { PATH } from 'types/enum/Path';
 
 export const LaunchesPageInfiniteScroll = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [items, setItems] = useState<PastLaunchesListQuery['launchesPast']>([]);
+  const [items, setItems] = useState<PastLaunchesQuery['launchesPast']>([]);
 
-  const limit = 16;
+  const limit = 12;
   const offset = items?.length;
 
-  const [launchesQuery, { loading, error }] = usePastLaunchesListLazyQuery();
+  const [launchesQuery, { loading, error }] = usePastLaunchesLazyQuery();
 
   const loadMoreLaunches = () => {
     launchesQuery({
@@ -28,6 +27,8 @@ export const LaunchesPageInfiniteScroll = () => {
         limit,
         offset,
       },
+      fetchPolicy: 'network-only',
+      nextFetchPolicy: 'cache-first',
     }).then((res) => {
       if (items !== null && items !== undefined && res.data && res.data.launchesPast) {
         setItems([...items, ...res.data.launchesPast]);
@@ -52,6 +53,7 @@ export const LaunchesPageInfiniteScroll = () => {
   if (loading && items?.length === 0) {
     return (
       <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
           <Loader />
         </LoaderContainer>
@@ -60,11 +62,17 @@ export const LaunchesPageInfiniteScroll = () => {
   }
 
   if (error) {
-    return <Container>{error.message}</Container>;
+    return (
+      <PageContainer>
+        <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
+        <div>{error.message}</div>
+      </PageContainer>
+    );
   }
 
   return (
     <PageContainer>
+      <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <PageTitle>Launches</PageTitle>
       <CardsContainer>
         {items?.map((item, index, array) => {
@@ -72,6 +80,7 @@ export const LaunchesPageInfiniteScroll = () => {
 
           return (
             <ListItemCard
+              id={item?.id}
               image={
                 item?.links?.flickr_images && item?.links?.flickr_images?.length > 0
                   ? item?.links?.flickr_images[0]
@@ -81,11 +90,12 @@ export const LaunchesPageInfiniteScroll = () => {
               linkTo={`../../${PATH.LAUNCHES}/${item?.id}`}
               name={item?.mission_name}
               ref={isLastElement ? observe : null}
+              sectionType={LAUNCHES}
             />
           );
         })}
-        {loading && <Loader />}
       </CardsContainer>
+      {loading && <Loader />}
     </PageContainer>
   );
 };

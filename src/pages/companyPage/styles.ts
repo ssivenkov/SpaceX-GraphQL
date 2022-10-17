@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const ContentContainer = styled.div`
+export const CardsContainer = styled.div`
   display: flex;
+`;
+
+export const TextContentContainer = styled.div`
+  display: flex;
+  margin: 0 12vw;
 `;
 
 export const SpaceXLogoImage = styled.img`
@@ -25,6 +30,7 @@ export const IconsContainer = styled.div`
 
 export const Text = styled.div`
   margin: 3px 0;
+  color: var(--text);
   &:first-child {
     margin-top: 0;
   }

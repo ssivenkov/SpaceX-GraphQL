@@ -1,6 +1,8 @@
 import { COLORS } from 'common/colors/colors';
 import { createGlobalStyle } from 'styled-components';
 
+const { WHITE, BLACK, SILVER_CHALICE, SILVER1, ALTO, GALLERY } = COLORS;
+
 export const GlobalNullStyles = createGlobalStyle`
 * {
     padding: 0;
@@ -94,6 +96,16 @@ export const GlobalAppStyles = createGlobalStyle`
   * a {
     color: ${COLORS.BLACK};
   }
+  
+// initial colors
+html {
+    --text: ${BLACK};
+    --background: ${WHITE};
+    --nav: ${SILVER1};
+    --cardBackground: ${SILVER_CHALICE};
+    --cardLink: ${ALTO};
+    --cardLinkHover: ${GALLERY};
+}
   
 // hide default background color on click
 * {

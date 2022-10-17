@@ -1,0 +1,11 @@
+export const LIGHT_THEME = 'lightTheme';
+export const DARK_THEME = 'darkTheme';
+export const NOTIFICATION_TIMEOUT = 4000;
+export const USER_ID = 'userID';
+export const USER_TOKEN = 'userToken';
+export const USER_THEME = 'userTheme';
+export const USER_PHOTO = 'userPhoto';
+export const USERS = 'users';
+export const LAUNCHES = 'launches';
+export const SHIPS = 'ships';
+export const IS_LIKED = 'isLiked';

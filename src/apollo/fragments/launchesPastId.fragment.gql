@@ -1,0 +1,3 @@
+fragment launchesPastIdFragment on Launch {
+  id
+}

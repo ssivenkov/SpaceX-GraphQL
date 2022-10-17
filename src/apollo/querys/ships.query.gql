@@ -1,6 +1,6 @@
-query Ships {
-  ships {
-    id
+query ships($limit: Int!, $offset: Int = 0) {
+  ships (limit: $limit, offset: $offset) {
+    ...shipIdFragment
     image
     name
   }

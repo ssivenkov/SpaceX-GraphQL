@@ -126,7 +126,7 @@
     "no-label-var": "error",
     "no-underscore-dangle": "off",
     "no-useless-rename": "error",
-    "no-magic-numbers": ["error", {"ignore": [-1, 0, 1]}],
+    "no-magic-numbers": "off",
 
     // strings
     "no-multi-str": "error",

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { Button } from '../button/Button';
+import { Button } from '../buttons/button/Button';
 import { SvgSelector } from '../svgSelector/SVGSelector';
 
 import style from './Pagination.module.scss';
@@ -90,9 +90,7 @@ export const Pagination = (props: PaginationPropsType) => {
           disabled={currentPage <= 1}
           leftIcon={<SvgSelector id='leftArrow' />}
           onClick={prevPageAction}
-        >
-          Prev
-        </Button>
+        />
       </div>
       <div className={style.pageBlock}>
         {paginationLinksArray
@@ -131,9 +129,7 @@ export const Pagination = (props: PaginationPropsType) => {
           disabled={currentPage >= totalPaginationLinksCount}
           onClick={nextPageAction}
           rightIcon={<SvgSelector id='rightArrow' />}
-        >
-          Next
-        </Button>
+        />
       </div>
     </div>
   );
