@@ -11,4 +11,5 @@ export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: 0 15px;
+  flex: 1;
 `;
