@@ -90,9 +90,7 @@ export const Pagination = (props: PaginationPropsType) => {
           disabled={currentPage <= 1}
           leftIcon={<SvgSelector id='leftArrow' />}
           onClick={prevPageAction}
-        >
-          Prev
-        </Button>
+        />
       </div>
       <div className={style.pageBlock}>
         {paginationLinksArray
@@ -131,9 +129,7 @@ export const Pagination = (props: PaginationPropsType) => {
           disabled={currentPage >= totalPaginationLinksCount}
           onClick={nextPageAction}
           rightIcon={<SvgSelector id='rightArrow' />}
-        >
-          Next
-        </Button>
+        />
       </div>
     </div>
   );

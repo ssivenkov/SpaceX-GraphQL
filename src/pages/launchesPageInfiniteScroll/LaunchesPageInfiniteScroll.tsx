@@ -16,7 +16,7 @@ export const LaunchesPageInfiniteScroll = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [items, setItems] = useState<PastLaunchesQuery['launchesPast']>([]);
 
-  const limit = 16;
+  const limit = 12;
   const offset = items?.length;
 
   const [launchesQuery, { loading, error }] = usePastLaunchesLazyQuery();
@@ -94,8 +94,8 @@ export const LaunchesPageInfiniteScroll = () => {
             />
           );
         })}
-        {loading && <Loader />}
       </CardsContainer>
+      {loading && <Loader />}
     </PageContainer>
   );
 };

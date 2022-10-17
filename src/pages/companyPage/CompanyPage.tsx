@@ -14,10 +14,10 @@ import { ToastContainer } from 'react-toastify';
 import { IconLinkButton } from './iconLinkButton/IconLinkButton';
 import {
   CompanyCardContainer,
-  ContentContainer,
   IconsContainer,
   SpaceXLogoImage,
   Text,
+  TextContentContainer,
 } from './styles';
 
 export const CompanyPage = () => {
@@ -50,7 +50,7 @@ export const CompanyPage = () => {
     <PageContainer>
       <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
       <PageTitle>SpaceX</PageTitle>
-      <ContentContainer>
+      <TextContentContainer>
         <CompanyCardContainer>
           <SpaceXLogoImage alt='SpaceX logo' src={SpaceXLogo} />
           <IconsContainer>
@@ -83,7 +83,7 @@ export const CompanyPage = () => {
           <Text>{`Headquarters: ${headquarters}`}</Text>
           <Text>{`Summary: ${data?.company?.summary}`}</Text>
         </div>
-      </ContentContainer>
+      </TextContentContainer>
     </PageContainer>
   );
 };

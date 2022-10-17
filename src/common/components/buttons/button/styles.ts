@@ -7,7 +7,7 @@ type StyledButtonPropsType = {
 export const StyledButton = styled.button<StyledButtonPropsType>`
   display: flex;
   align-items: center;
-  padding: 11px 14px;
+  padding: 5px;
   border-radius: 7px;
   font-size: 18px;
   font-weight: 500;
@@ -20,12 +20,12 @@ export const StyledButton = styled.button<StyledButtonPropsType>`
       padding: 8px 16px;
     }
     &:active {
-      box-shadow: ${(props) => (props.disabled ? 'none' : '0 0 10px 4px #bbb')};
+      box-shadow: ${(props) => (props.disabled ? 'none' : '0 0 8px 2px #bbb')};
     }
   }
   @media (pointer: fine) {
     &:hover {
-      box-shadow: ${(props) => (props.disabled ? 'none' : '0 0 10px 4px #bbb')};
+      box-shadow: ${(props) => (props.disabled ? 'none' : '0 0 8px 2px #bbb')};
     }
   }
 `;
