@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: |
           npm install
-          npm codegen
+          npm run codegen
           npm run-script build
         env:
           REACT_APP_GRAPHQL_ENDPOINT: ${{ secrets.REACT_APP_GRAPHQL_ENDPOINT }}
