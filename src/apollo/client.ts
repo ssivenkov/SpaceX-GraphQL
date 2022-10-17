@@ -15,28 +15,28 @@ const timeLink = new ApolloLink((operation, forward) => {
 
   return forward(operation).map((data) => {
     // called after server responds
-    const time = +new Date() - operation.getContext().start;
+    /* const time = +new Date() - operation.getContext().start;
 
-    console.log(`Operation ${operation.operationName} took ${time}ms to complete`);
+    console.log(`Operation ${operation.operationName} took ${time}ms to complete`);*/
 
     return data;
   });
 });
 
 const postRetryLink = new ApolloLink((operation, forward) => {
-  const time = +new Date() - operation.getContext().start;
+  /* const time = +new Date() - operation.getContext().start;
 
   console.log(
     `client-server lap for ${operation.operationName}: ${time}ms difference between operation context time and 'postRetryLink' execution time`,
-  );
+  );*/
 
   return forward(operation).map((data) => {
     // called after server responds
-    const time = +new Date() - operation.getContext().start;
+    /* const time = +new Date() - operation.getContext().start;
 
     console.log(
       `server-client lap for ${operation.operationName}: ${time}ms difference between operation context time and 'postRetryLink' execution time`,
-    );
+    );*/
 
     return data;
   });
