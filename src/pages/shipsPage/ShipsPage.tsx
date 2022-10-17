@@ -15,7 +15,7 @@ export const ShipsPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [items, setItems] = useState<ShipsQuery['ships']>([]);
 
-  const limit = 16;
+  const limit = 12;
   const offset = items?.length;
 
   const [shipsQuery, { loading, error }] = useShipsLazyQuery();
@@ -88,8 +88,8 @@ export const ShipsPage = () => {
             />
           );
         })}
-        {loading && <Loader />}
       </CardsContainer>
+      {loading && <Loader />}
     </PageContainer>
   );
 };
