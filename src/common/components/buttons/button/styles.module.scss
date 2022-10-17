@@ -12,7 +12,6 @@
   @extend %iconContainer;
   svg {
     @extend %iconSize;
-    margin-right: 9px;
     fill: #fff;
   }
 }
@@ -21,7 +20,6 @@
   @extend %iconContainer;
   svg {
     @extend %iconSize;
-    margin-right: 9px;
     fill: #333;
   }
 }
@@ -30,7 +28,6 @@
   @extend %iconContainer;
   svg {
     @extend %iconSize;
-    margin-left: 9px;
     fill: #fff;
   }
 }
@@ -39,7 +36,6 @@
   @extend %iconContainer;
   svg {
     @extend %iconSize;
-    margin-left: 9px;
     fill: #333;
   }
 }
