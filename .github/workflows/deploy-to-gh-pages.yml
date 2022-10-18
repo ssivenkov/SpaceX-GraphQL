@@ -18,10 +18,10 @@ jobs:
 
       - name: Build
         run: |
-          npm install
-          npm run codegen
-          npm run test
-          npm run build
+          yarn install
+          yarn run codegen
+          yarn run test:ci
+          yarn run build
         env:
           REACT_APP_GRAPHQL_ENDPOINT: ${{ secrets.REACT_APP_GRAPHQL_ENDPOINT }}
           REACT_APP_API_KEI: ${{ secrets.REACT_APP_API_KEI }}
@@ -35,6 +35,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ github.token }}
+          TOKEN: ${{ github.token }}
           BRANCH: gh-pages
           FOLDER: build
