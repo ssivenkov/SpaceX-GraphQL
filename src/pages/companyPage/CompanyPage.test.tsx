@@ -1,10 +1,12 @@
 import '@testing-library/jest-dom';
 import { MockedProvider } from '@apollo/client/testing';
 import { MockedProviderProps } from '@apollo/client/testing/react/MockedProvider';
-import { render, screen } from '@testing-library/react';
+import { render, screen, configure } from '@testing-library/react';
 import { COMPANY_INFO } from 'apollo/querys/testJsQuerys/companyInfo.query';
 
 import { CompanyPage } from './CompanyPage';
+
+configure({ asyncUtilTimeout: 5000 }); // for GitHub actions
 
 const correctMock: MockedProviderProps['mocks'] = [
   {
