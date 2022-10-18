@@ -62,7 +62,7 @@
     "codegen": "graphql-codegen --require dotenv/config --config codegen.yml",
     "start": "react-scripts start",
     "lint": "eslint . --color && tsc --noEmit",
-    "test": "react-scripts test --watchAll=false --maxWorkers=1",
+    "test": "react-scripts test --watchAll=false",
     "-- additional --": "",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build"

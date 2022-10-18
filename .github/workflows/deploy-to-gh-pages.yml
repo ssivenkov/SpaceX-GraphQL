@@ -20,7 +20,7 @@ jobs:
         run: |
           yarn install
           yarn run codegen
-          yarn run test:ci
+          yarn run test
           yarn run build
         env:
           REACT_APP_GRAPHQL_ENDPOINT: ${{ secrets.REACT_APP_GRAPHQL_ENDPOINT }}
