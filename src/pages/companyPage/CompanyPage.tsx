@@ -36,7 +36,6 @@ export const CompanyPage = () => {
 
   if (loading) {
     return (
-      /*<span>Loading...</span>*/
       <PageContainer>
         <ToastContainer autoClose={NOTIFICATION_TIMEOUT} />
         <LoaderContainer>
