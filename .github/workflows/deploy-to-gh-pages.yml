@@ -9,7 +9,7 @@ permissions: write-all
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     environment: github-pages
     concurrency: ci-${{github.ref}}
     steps:
