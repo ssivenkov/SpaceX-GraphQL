@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SpaceX-GraphQL/static/css/main.356d01be.css",
+    "main.js": "/SpaceX-GraphQL/static/js/main.152000ea.js",
+    "static/media/SpaceXLogo.jpeg": "/SpaceX-GraphQL/static/media/SpaceXLogo.9bf807c07b65bc7438f5.jpeg",
+    "index.html": "/SpaceX-GraphQL/index.html",
+    "static/media/typeDefs.gql": "/SpaceX-GraphQL/static/media/typeDefs.453c9246129319c1d98a.gql",
+    "main.356d01be.css.map": "/SpaceX-GraphQL/static/css/main.356d01be.css.map",
+    "main.152000ea.js.map": "/SpaceX-GraphQL/static/js/main.152000ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.356d01be.css",
+    "static/js/main.152000ea.js"
+  ]
+}
