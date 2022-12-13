@@ -17,7 +17,7 @@ export const Navigation = () => {
       <Route element={<CompanyPage />} path={PATH.COMPANY} />
       <Route element={<LaunchesPageInfiniteScroll />} path={PATH.LAUNCHES_IS} />
       <Route element={<Outlet />} path={PATH.LAUNCHES_P}>
-        <Route element={<Navigate replace to='1' />} index />
+        <Route element={<Navigate replace={true} to='1' />} index={true} />
         <Route element={<LaunchesPagePagination />} path=':launchesPage' />
       </Route>
       <Route element={<Outlet />} path={PATH.LAUNCHES}>
